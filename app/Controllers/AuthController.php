@@ -6,8 +6,11 @@ use App\Models\UserModel;
 
 class AuthController extends BaseController
 {
-    public function form()
-    {
+    public function index() {
+        return view('index');
+    }
+
+    public function form() {
         return view('auth/login');
     }
     public function login()
@@ -34,7 +37,7 @@ class AuthController extends BaseController
         ]);
         return redirect()->to('/admin');
     }
-    
+
     public function logout() {
         session()->destroy();
         return redirect()->to('/login');
