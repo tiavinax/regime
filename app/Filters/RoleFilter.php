@@ -6,7 +6,6 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-
 class RoleFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
@@ -14,7 +13,7 @@ class RoleFilter implements FilterInterface
         $session = session();
         $user = $session->get('user');
         // $arguments contient le(s) rôle(s) autorisé(s)
-        // ex: ['admin'] ou ['admin', 'bibliothecaire']
+        // ex: ['admin'] 
         if (!$user || !in_array($user['role'], $arguments ?? [])) {
             return redirect()->to('/')->with('erreur', 'Accès refusé : droits insuffisants');
         }

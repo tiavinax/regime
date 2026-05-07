@@ -1,0 +1,1 @@
+ALTER TABLE utilisateur ADD role ENUM('utilisateur', 'admin') NOT NULL DEFAULT 'utilisateur' AFTER password;
