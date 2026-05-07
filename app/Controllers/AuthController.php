@@ -9,12 +9,14 @@ class AuthController extends BaseController
     public function index() {
         return view('index');
     }
+    public function template() {
+        return view('page');
+    }
 
     public function form() {
         return view('auth/login');
     }
-    public function login()
-    {
+    public function login() {
         $model = new UserModel();
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
@@ -38,7 +40,8 @@ class AuthController extends BaseController
         return redirect()->to('/admin');
     }
 
-    public function logout() {
+    public function logout()
+    {
         session()->destroy();
         return redirect()->to('/login');
     }
