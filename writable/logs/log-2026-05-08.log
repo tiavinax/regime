@@ -108,3 +108,33 @@ in SYSTEMPATH/Database/BaseBuilder.php on line 3528.
 10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
 12 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')
+CRITICAL - 2026-05-08 07:39:30 --> TypeError: CodeIgniter\Database\BaseBuilder::setBind(): Argument #1 ($key) must be of type string, int given, called in /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseBuilder.php on line 1575
+[Method: POST, Route: register/step2]
+in SYSTEMPATH/Database/BaseBuilder.php on line 3528.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1575): CodeIgniter\Database\BaseBuilder->setBind()
+ 2 SYSTEMPATH/Model.php(326): CodeIgniter\Database\BaseBuilder->set()
+ 3 SYSTEMPATH/BaseModel.php(899): CodeIgniter\Model->doInsert()
+ 4 SYSTEMPATH/Model.php(668): CodeIgniter\BaseModel->insert()
+ 5 APPPATH/Controllers/AuthController.php(131): CodeIgniter\Model->insert()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->doRegisterStep2()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')
+CRITICAL - 2026-05-08 07:41:14 --> TypeError: CodeIgniter\Database\BaseBuilder::setBind(): Argument #1 ($key) must be of type string, int given, called in /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseBuilder.php on line 1575
+[Method: POST, Route: register/step2]
+in SYSTEMPATH/Database/BaseBuilder.php on line 3528.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1575): CodeIgniter\Database\BaseBuilder->setBind()
+ 2 SYSTEMPATH/Model.php(326): CodeIgniter\Database\BaseBuilder->set()
+ 3 SYSTEMPATH/BaseModel.php(899): CodeIgniter\Model->doInsert()
+ 4 SYSTEMPATH/Model.php(668): CodeIgniter\BaseModel->insert()
+ 5 APPPATH/Controllers/AuthController.php(131): CodeIgniter\Model->insert()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->doRegisterStep2()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')
