@@ -6,13 +6,6 @@ use App\Models\UserModel;
 
 class LoginController extends BaseController {
 
-
-    // nom VARCHAR(100) NOT NULL,
-    // email VARCHAR(150) UNIQUE NOT NULL,
-    // password VARCHAR(255) NOT NULL,
-    // genre ENUM('homme', 'femme') NOT NULL,
-    // date_naissance DATE NOT NULL,
-    // date_inscription DATETIME DEFAULT CURRENT_TIMESTAMP
     
     public function save() {
 

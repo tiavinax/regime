@@ -22,6 +22,10 @@ $routes->post('/register/step1', 'AuthController::doRegisterStep1');
 $routes->get('/register/step2', 'AuthController::registerStep2');
 $routes->post('/register/step2', 'AuthController::doRegisterStep2');
 
+// Objectif utilisateur
+$routes->get('/objectif/choisir', 'ObjectifController::choisir');
+$routes->post('/objectif/doChoisir', 'ObjectifController::doChoisir');
+
 // Dashboard
 $routes->get('/dashboard', 'DashboardController::index');
 $routes->get('/suggestion/refresh', 'DashboardController::refreshSuggestion');

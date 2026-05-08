@@ -3,7 +3,7 @@
 
 <div class="form-card">
     <h1 class="form-title">Votre profil santé</h1>
-    <p class="form-subtitle">Étape 2 sur 2 — Calculons votre IMC</p>
+    <p class="form-subtitle">Étape 2 sur 2 — Pour calculer votre IMC</p>
     
     <div class="wizard-steps">
         <div class="step completed">
@@ -12,7 +12,7 @@
         </div>
         <div class="step active">
             <div class="step-circle">2</div>
-            <div class="step-label">Santé & objectif</div>
+            <div class="step-label">Santé</div>
         </div>
     </div>
     
@@ -21,7 +21,7 @@
         
         <div class="form-group">
             <label for="taille_cm">Taille (cm) *</label>
-            <input type="number" id="taille_cm" name="taille_cm" step="0.1" required>
+            <input type="number" id="taille_cm" name="taille_cm" step="0.1" required autofocus>
         </div>
         
         <div class="form-group">
@@ -41,45 +41,15 @@
             </select>
         </div>
         
-        <div class="form-group">
-            <label for="type_objectif">Objectif principal *</label>
-            <select id="type_objectif" name="type_objectif" required>
-                <option value="">Sélectionnez</option>
-                <option value="reduire_poids">Réduire mon poids</option>
-                <option value="augmenter_poids">Augmenter mon poids</option>
-                <option value="imc_ideal">Atteindre mon IMC idéal</option>
-            </select>
-        </div>
-        
-        <div class="form-group" id="poidsCibleGroup" style="display: none;">
-            <label for="poids_cible_kg">Poids cible (kg)</label>
-            <input type="number" id="poids_cible_kg" name="poids_cible_kg" step="0.1">
-        </div>
-        
-        <div class="form-group">
-            <label for="duree_souhaitee_semaines">Durée souhaitée (semaines)</label>
-            <input type="number" id="duree_souhaitee_semaines" name="duree_souhaitee_semaines" placeholder="Optionnel">
-        </div>
-        
         <button type="submit" class="btn-primary" style="width: 100%; padding: 14px;">
             Finaliser mon inscription <i class="fas fa-check"></i>
         </button>
     </form>
+    
+    <p style="text-align: center; margin-top: 24px; font-size: 0.85rem; color: var(--text-muted);">
+        Après inscription, vous pourrez définir votre objectif (perdre, prendre ou atteindre l'IMC idéal)
+    </p>
 </div>
-
-<script>
-// Affichage conditionnel du poids cible selon objectif
-const objectifSelect = document.getElementById('type_objectif');
-const poidsCibleGroup = document.getElementById('poidsCibleGroup');
-
-objectifSelect.addEventListener('change', function() {
-    if(this.value === 'imc_ideal') {
-        poidsCibleGroup.style.display = 'block';
-    } else {
-        poidsCibleGroup.style.display = 'none';
-    }
-});
-</script>
 
 <?= $this->endSection() ?>
 <?= $this->include('layout/footer') ?>
