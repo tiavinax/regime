@@ -1,0 +1,151 @@
+CRITICAL - 2026-05-07 13:28:53 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layouts/main.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/View/View.php(256): CodeIgniter\View\View->render()
+ 3 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 4 APPPATH/Controllers/HomeController.php(8): view()
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\HomeController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')
+CRITICAL - 2026-05-07 13:28:53 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layouts/main.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/View/View.php(256): CodeIgniter\View\View->render()
+ 3 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 4 APPPATH/Controllers/HomeController.php(8): view()
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\HomeController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')
+ERROR - 2026-05-07 13:30:16 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/tiavina-anjaranomena/SYST-INFO/regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/tiavina-anjaranomena/SYST-INFO/regime/app/Controllers/AuthController.php(23): CodeIgniter\BaseModel->first()
+#7 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#8 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/tiavina-anjaranomena/SYST-INFO/regime/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/tiavina-anjaranomena/SYST-INFO/regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/tiavina-anjaranomena/SYST-INFO/regime/app/Controllers/AuthController.php(23): CodeIgniter\BaseModel->first()
+#6 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(951): App\Controllers\AuthController->login()
+#7 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/tiavina-anjaranomena/SYST-INFO/regime/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-05-07 13:30:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+[Method: GET, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AuthController.php(23): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')
+ERROR - 2026-05-07 13:30:39 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/tiavina-anjaranomena/SYST-INFO/regime/app/Controllers/TestDb.php(14): CodeIgniter\Database\BaseConnection->query()
+#4 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(951): App\Controllers\TestDb->index()
+#5 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#6 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#7 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#9 /home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#10 /home/tiavina-anjaranomena/SYST-INFO/regime/system/rewrite.php(44): require_once('...')
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/tiavina-anjaranomena/SYST-INFO/regime/app/Controllers/TestDb.php(14): CodeIgniter\Database\BaseConnection->query()
+#3 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(951): App\Controllers\TestDb->index()
+#4 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#5 /home/tiavina-anjaranomena/SYST-INFO/regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#7 /home/tiavina-anjaranomena/SYST-INFO/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#8 /home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#9 /home/tiavina-anjaranomena/SYST-INFO/regime/system/rewrite.php(44): require_once('...')
+#10 {main}
+CRITICAL - 2026-05-07 13:31:40 --> ErrorException: include(app/Views/layout/header.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in APPPATH/Views/home.php on line 2.
+ 1 APPPATH/Views/home.php(2): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Views/home.php(2): include()
+ 3 SYSTEMPATH/View/View.php(240): include('/home/tiavina-anjaranomena/SYST-INFO/regime/app/Views/home.php')
+ 4 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 6 APPPATH/Controllers/HomeController.php(8): view()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')
+CRITICAL - 2026-05-07 13:31:40 --> ErrorException: include(app/Views/layout/header.php): Failed to open stream: No such file or directory
+[Method: GET, Route: /]
+in APPPATH/Views/home.php on line 2.
+ 1 APPPATH/Views/home.php(2): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Views/home.php(2): include()
+ 3 SYSTEMPATH/View/View.php(240): include('/home/tiavina-anjaranomena/SYST-INFO/regime/app/Views/home.php')
+ 4 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 6 APPPATH/Controllers/HomeController.php(8): view()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\HomeController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')
+CRITICAL - 2026-05-07 13:52:15 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "home.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/HomeController.php(8): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\HomeController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/tiavina-anjaranomena/SYST-INFO/regime/public/index.php')

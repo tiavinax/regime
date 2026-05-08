@@ -6,30 +6,20 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-
     protected $table = 'utilisateur';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nom', 'email', 'password', 'date_naissance', 'date_inscription'];
-
+    protected $allowedFields = [
+        'nom', 'email', 'password', 'genre', 'date_naissance', 'is_gold', 'role'
+    ];
+    protected $useTimestamps = true;
+    protected $createdField = 'date_inscription';
+    protected $updatedField = false;
+    
     protected $validationRules = [
-        'name' => 'required|min_length[3]',
-        'email' => 'required|valid_email',
+        'nom' => 'required|min_length[2]|max_length[100]',
+        'email' => 'required|valid_email|is_unique[utilisateur.email]',
         'password' => 'required|min_length[8]',
+        'genre' => 'required|in_list[homme,femme]',
+        'date_naissance' => 'required|valid_date'
     ];
-
-    protected $validationMessages = [
-        'email' => ['required' => 'Email obligatoire'],
-    ];
-
-    // Si vous voulez garder votre fonction personnalisée
-    public function getUsers()
-    {
-        // Méthode 1: Query Builder
-        return $this->findAll();
-    }
-
-    public function getUserByEmail($email)
-    {
-        return $this->where('email', $email)->first();
-    }
 }
