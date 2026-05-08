@@ -39,17 +39,21 @@ Chaque bloc est indépendant : un membre de l'équipe peut prendre un bloc entie
 
 ---
 
+
+
+
+
 ## 3. PROFIL UTILISATEUR & OBJECTIFS
 
 ### 3.1 Tableau de bord utilisateur (Front)
-- [ ] **Modèle** : `ProfilPhysiqueModel`, `ObjectifModel`, `BesoinCaloriqueModel`
-- [ ] **Contrôleur** : `DashboardController` - méthode `index()`
-- [ ] **Vue** : `dashboard/index.php` (affiche IMC, objectif en cours)
-- [ ] **Calcul IMC** : helper `imc_helper.php` (poids / (taille/100)²)
-- [ ] **Route** : `GET /dashboard`
+- [ok] **Modèle** : `ProfilPhysiqueModel`, `ObjectifModel`, `BesoinCaloriqueModel`
+- [ok] **Contrôleur** : `DashboardController` - méthode `index()`
+- [ok] **Vue** : `dashboard/index.php` (affiche IMC, objectif en cours)
+- [ok] **Calcul IMC** : helper `imc_helper.php` (poids / (taille/100)²)
+- [ok] **Route** : `GET /dashboard`
 
 ### 3.2 Choix des 3 objectifs
-- [ ] **Modèle** : `ObjectifModel` (CRUD pour l'utilisateur)
+- [ok] **Modèle** : `ObjectifModel` (CRUD pour l'utilisateur)
 - [ ] **Contrôleur** : `ObjectifController` - méthodes `choisir()`, `modifier()`
 - [ ] **Vue** : `objectif/choisir.php` (3 radios : augmenter/réduire/IMC idéal)
 - [ ] **JS** : champ `poids_cible_kg` visible uniquement si "IMC idéal"
