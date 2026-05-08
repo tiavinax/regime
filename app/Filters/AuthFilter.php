@@ -8,8 +8,7 @@ use CodeIgniter\Filters\FilterInterface;
 
 class AuthFilter implements FilterInterface
 {
-    public function before(RequestInterface $request, $arguments = null)
-    {
+    public function before(RequestInterface $request, $arguments = null) {
         $session = session();
         // Si pas connecté → redirection login
         if (!$session->get('user')) {
