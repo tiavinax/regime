@@ -1,0 +1,150 @@
+<?= $this->extend('layout/header') ?>
+
+<?= $this->section('content') ?>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Nos régimes alimentaires</h1>
+        <p>Découvrez nos programmes adaptés à vos objectifs</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Filtres -->
+    <div class="filters-section">
+        <div class="filter-buttons">
+            <a href="/regimes" class="filter-btn <?= !isset($categorie) ? 'active' : '' ?>">Tous</a>
+            <a href="/regimes/categorie/augmenter" class="filter-btn <?= ($categorie ?? '') == 'augmenter' ? 'active' : '' ?>">⬆️ Prise de poids</a>
+            <a href="/regimes/categorie/reduire" class="filter-btn <?= ($categorie ?? '') == 'reduire' ? 'active' : '' ?>">⬇️ Perte de poids</a>
+            <a href="/regimes/categorie/maintenir" class="filter-btn <?= ($categorie ?? '') == 'maintenir' ? 'active' : '' ?>">⚖️ Maintien</a>
+        </div>
+    </div>
+
+    <!-- Liste des régimes -->
+    <div class="regimes-grid">
+        <?php if(empty($regimes)): ?>
+            <div class="no-results">
+                <i class="fas fa-search"></i>
+                <p>Aucun régime trouvé dans cette catégorie</p>
+                <a href="/regimes" class="btn-primary">Voir tous les régimes</a>
+            </div>
+        <?php else: ?>
+            <?php foreach($regimes as $regime): ?>
+            <div class="regime-card">
+                <div class="regime-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3><?= esc($regime['nom_regime']) ?></h3>
+                <p><?= substr(esc($regime['description']), 0, 100) ?>...</p>
+                <div class="regime-meta">
+                    <span class="badge badge-<?= $regime['type_cible'] ?>">
+                        <?php if($regime['type_cible'] == 'augmenter'): ?>⬆️ Prise de poids
+                        <?php elseif($regime['type_cible'] == 'reduire'): ?>⬇️ Perte de poids
+                        <?php else: ?>⚖️ Maintien<?php endif; ?>
+                    </span>
+                    <?php if($regime['prix_journalier']): ?>
+                        <span class="price"><?= number_format($regime['prix_journalier'], 2) ?> €/jour</span>
+                    <?php endif; ?>
+                </div>
+                <a href="/regimes/detail/<?= $regime['id'] ?>" class="btn-outline">En savoir plus</a>
+            </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+    }
+    .filters-section {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .filter-buttons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .filter-btn {
+        padding: 10px 24px;
+        border-radius: 40px;
+        background: var(--white);
+        color: var(--text-dark);
+        text-decoration: none;
+        transition: 0.2s;
+        border: 1px solid var(--gray-light);
+    }
+    .filter-btn:hover, .filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+    .regimes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .regime-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: var(--shadow-sm);
+        transition: 0.2s;
+    }
+    .regime-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+    .regime-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .regime-icon i {
+        font-size: 1.8rem;
+        color: var(--primary);
+    }
+    .regime-card h3 {
+        margin-bottom: 12px;
+    }
+    .regime-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px 0;
+    }
+    .price {
+        font-weight: 700;
+        color: var(--primary);
+    }
+    .no-results {
+        text-align: center;
+        padding: 60px;
+        background: var(--white);
+        border-radius: 20px;
+    }
+    .no-results i {
+        font-size: 3rem;
+        color: var(--gray-mid);
+        margin-bottom: 20px;
+    }
+</style>
+
+<?= $this->endSection() ?>
+<?= $this->include('layout/footer') ?>

@@ -28,4 +28,32 @@ class UserModel extends Model
         'genre' => 'required|in_list[homme,femme]',
         'date_naissance' => 'required|valid_date'
     ];
+
+     /**
+     * Vérifie si un utilisateur est administrateur
+     * @param int $userId
+     * @return bool
+     */
+    public function isAdmin(int $userId): bool
+    {
+        $user = $this->find($userId);
+        return $user && isset($user['role']) && $user['role'] === 'admin';
+    }
+
+    //    /**
+    //  * Vérifie les identifiants d'un utilisateur
+    //  * @param string $email
+    //  * @param string $password
+    //  * @return array|null
+    //  */
+    // public function verifyCredentials(string $email, string $password): ?array
+    // {
+    //     $user = $this->where('email', $email)->first();
+
+    //     if ($user && password_verify($password, $user['password'])) {
+    //         return $user;
+    //     }
+
+    //     return null;
+    // }
 }

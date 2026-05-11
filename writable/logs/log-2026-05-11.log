@@ -1,0 +1,15 @@
+CRITICAL - 2026-05-11 05:13:38 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')

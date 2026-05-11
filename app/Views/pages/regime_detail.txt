@@ -1,0 +1,187 @@
+<?= $this->extend('layout/header') ?>
+
+<?= $this->section('content') ?>
+
+<div class="page-header">
+    <div class="container">
+        <a href="/regimes" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux régimes</a>
+        <h1><?= esc($regime['nom_regime']) ?></h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="detail-grid">
+        <div class="detail-main">
+            <div class="detail-card">
+                <h2>Description</h2>
+                <p><?= nl2br(esc($regime['description'])) ?></p>
+            </div>
+
+            <div class="detail-card">
+                <h2>Caractéristiques</h2>
+                <div class="features-list">
+                    <div class="feature">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <strong>Type</strong>
+                            <span>
+                                <?php if($regime['type_cible'] == 'augmenter'): ?>⬆️ Prise de poids
+                                <?php elseif($regime['type_cible'] == 'reduire'): ?>⬇️ Perte de poids
+                                <?php else: ?>⚖️ Maintien<?php endif; ?>
+                            </span>
+                        </div>
+                    </div>
+                    <?php if($regime['apport_calorique_reference']): ?>
+                    <div class="feature">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong>Apport calorique</strong>
+                            <span><?= $regime['apport_calorique_reference'] ?> kcal/jour</span>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($regime['variation_poids_semaine']): ?>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <strong>Résultat estimé</strong>
+                            <span><?= $regime['variation_poids_semaine'] ?> kg/semaine</span>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-sidebar">
+            <div class="sidebar-card">
+                <div class="price-box">
+                    <?php if($regime['prix_journalier']): ?>
+                        <div class="price-label">Prix</div>
+                        <div class="price-value"><?= number_format($regime['prix_journalier'], 2) ?> €<span>/jour</span></div>
+                        <div class="price-total"><?= number_format($regime['prix_journalier'] * 30, 2) ?> €/mois</div>
+                    <?php else: ?>
+                        <div class="price-free">Gratuit</div>
+                    <?php endif; ?>
+                </div>
+                
+                <?php if(session()->has('user_id')): ?>
+                    <a href="/dashboard" class="btn-primary" style="width: 100%; text-align: center;">Commencer ce régime</a>
+                <?php else: ?>
+                    <a href="/register" class="btn-primary" style="width: 100%; text-align: center;">S'inscrire pour commencer</a>
+                    <p class="login-prompt">Déjà inscrit ? <a href="/login">Se connecter</a></p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 40px 0;
+    }
+    .back-link {
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+    .back-link:hover {
+        text-decoration: underline;
+    }
+    .detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 40px;
+        margin: 40px 0;
+    }
+    .detail-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow-sm);
+    }
+    .detail-card h2 {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid var(--gray-light);
+    }
+    .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .feature {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .feature i {
+        font-size: 1.5rem;
+        color: var(--primary);
+        width: 40px;
+    }
+    .feature div {
+        flex: 1;
+    }
+    .feature strong {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    .feature span {
+        font-weight: 600;
+    }
+    .sidebar-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 100px;
+    }
+    .price-box {
+        text-align: center;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--gray-light);
+    }
+    .price-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    .price-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+    .price-value span {
+        font-size: 1rem;
+        font-weight: normal;
+    }
+    .price-total {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+    }
+    .price-free {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+    .login-prompt {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 0.85rem;
+    }
+    @media (max-width: 768px) {
+        .detail-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<?= $this->endSection() ?>
+<?= $this->include('layout/footer') ?>
