@@ -16,26 +16,26 @@ Chaque bloc est indépendant : un membre de l'équipe peut prendre un bloc entie
 ## 2. AUTHENTIFICATION (FRONT OFFICE)
 
 ### 2.1 Inscription - Page 1 (Infos personnelles)
-- [ ] **Modèle** : `UserModel` (validation nom, email, genre, date_naissance, password hashé)
-- [ ] **Contrôleur** : `AuthController` - méthode `registerStep1()`
-- [ ] **Vue** : `auth/register_step1.php` (formulaire nom/email/genre/password)
-- [ ] **JS** : validation côté client (email unique, mot de passe fort)
-- [ ] **Route** : `GET/POST /register/step1`
+- [ok] **Modèle** : `UserModel` (validation nom, email, genre, date_naissance, password hashé)
+- [ok] **Contrôleur** : `AuthController` - méthode `registerStep1()`
+- [ok] **Vue** : `auth/register_step1.php` (formulaire nom/email/genre/password)
+- [ok] **JS** : validation côté client (email unique, mot de passe fort)
+- [ok] **Route** : `GET/POST /register/step1`
 
 ### 2.2 Inscription - Page 2 (Infos santé)
-- [ ] **Modèle** : `ProfilPhysiqueModel` + `ObjectifModel`
-- [ ] **Contrôleur** : `AuthController` - méthode `registerStep2()`
-- [ ] **Vue** : `auth/register_step2.php` (taille, poids, niveau_activite)
-- [ ] **JS** : pré-remplissage conditionnel selon objectif choisi
-- [ ] **Route** : `POST /register/step2`
+- [ok] **Modèle** : `ProfilPhysiqueModel` + `ObjectifModel`
+- [ok] **Contrôleur** : `AuthController` - méthode `registerStep2()`
+- [ok] **Vue** : `auth/register_step2.php` (taille, poids, niveau_activite)
+- [ok] **JS** : pré-remplissage conditionnel selon objectif choisi
+- [ok] **Route** : `POST /register/step2`
 
 ### 2.3 Login
-- [ ] **Modèle** : `UserModel` (méthode `verifyCredentials`)
-- [ ] **Contrôleur** : `AuthController` - méthode `login()`
-- [ ] **Vue** : `auth/login.php`
-- [ ] **Session CI4** : stockage `user_id`, `user_nom`, `is_gold`
-- [ ] **Route** : `GET/POST /login`
-- [ ] **Logout** : `GET /logout`
+- [ok] **Modèle** : `UserModel` (méthode `verifyCredentials`)
+- [ok] **Contrôleur** : `AuthController` - méthode `login()`
+- [ok] **Vue** : `auth/login.php`
+- [ok] **Session CI4** : stockage `user_id`, `user_nom`, `is_gold`
+- [ok] **Route** : `GET/POST /login`
+- [ok] **Logout** : `GET /logout`
 
 ---
 

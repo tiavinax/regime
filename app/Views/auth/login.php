@@ -16,12 +16,12 @@
         
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="<?= old('email') ?>" required autofocus>
+            <input type="email" id="email" name="email" value="<?= old('email') ?? "jean.dupont@email.com"; ?>" required autofocus>
         </div>
         
         <div class="form-group">
             <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" value="password">
         </div>
         
         <button type="submit" class="btn-primary" style="width: 100%; padding: 14px;">
