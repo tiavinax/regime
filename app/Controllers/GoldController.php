@@ -51,72 +51,55 @@ class GoldController extends BaseController
      */
     public function acheter()
     {
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL);
+        // Vérifier la méthode HTTP (insensible à la casse)
+        if (strtolower($this->request->getMethod()) !== 'post') {
+            return redirect()->to('/gold');
+        }
 
-        echo "<h1>=== DEBUG COMPLET ACHAT GOLD ===</h1>";
+        if (!session()->has('user_id')) {
+            return redirect()->to('/login')->with('error', 'Veuillez vous connecter');
+        }
 
-        // Simuler l'utilisateur connecté
-        $userId = 4; // Utilisateur de test
-        echo "<p>1. User ID: " . $userId . "</p>";
+        $userId = session()->get('user_id');
 
-        // Vérifier l'état actuel
+        // Recharger l'utilisateur depuis la BDD
         $user = $this->userModel->find($userId);
-        echo "<p>2. État actuel is_gold: " . ($user['is_gold'] ?? 'null') . "</p>";
-        echo "<p>2b. Role: " . ($user['role'] ?? 'null') . "</p>";
+        $isGold = $user['is_gold'] ?? 0;
 
-        // Vérifier le wallet
-        $solde = $this->walletModel->getSolde($userId);
-        echo "<p>3. Solde wallet: " . $solde . " €</p>";
+        // Si déjà Gold
+        if ($isGold) {
+            return redirect()->to('/dashboard')->with('info', 'Vous êtes déjà membre Gold');
+        }
 
         $prixGold = 49.99;
-        echo "<p>4. Prix Gold: " . $prixGold . " €</p>";
+        $solde = $this->walletModel->getSolde($userId);
 
-        // Vérifier si solde suffisant
-        $soldeSuffisant = $solde >= $prixGold;
-        echo "<p>5. Solde suffisant: " . ($soldeSuffisant ? 'OUI' : 'NON') . "</p>";
-
-        if (!$soldeSuffisant) {
-            echo "<p style='color:red'>❌ Solde insuffisant pour acheter Gold</p>";
-            die();
+        // Vérifier le solde
+        if ($solde < $prixGold) {
+            return redirect()->back()->with('error', 'Solde insuffisant. Il vous manque ' . number_format($prixGold - $solde, 2) . ' €');
         }
 
         // 1. Débiter le wallet
-        echo "<p>6. Tentative de débit...<br>";
-        $success = $this->walletModel->debiter($userId, $prixGold, 'Test achat Gold');
-        echo "Résultat débit: " . ($success ? '✓ SUCCÈS' : '✗ ÉCHEC') . "</p>";
+        $success = $this->walletModel->debiter($userId, $prixGold, 'Achat option Gold (remise à vie -15%)');
 
         if (!$success) {
-            echo "<p style='color:red'>❌ Échec du débit</p>";
-            die();
+            return redirect()->back()->with('error', 'Erreur lors du débit du porte-monnaie');
         }
-
-        // Vérifier nouveau solde
-        $nouveauSolde = $this->walletModel->getSolde($userId);
-        echo "<p>7. Nouveau solde après débit: " . $nouveauSolde . " €</p>";
 
         // 2. Mettre à jour is_gold
-        echo "<p>8. Tentative mise à jour is_gold...<br>";
         $updateResult = $this->userModel->setGoldStatus($userId, 1);
-        echo "Résultat update: " . ($updateResult ? '✓ SUCCÈS' : '✗ ÉCHEC') . "</p>";
 
-        // 3. Vérifier après mise à jour
-        $userUpdated = $this->userModel->find($userId);
-        echo "<p>9. is_gold après update: " . ($userUpdated['is_gold'] ?? 'null') . "</p>";
-
-        // 4. Vérifier la session
-        session()->set('is_gold', 1);
-        echo "<p>10. Session is_gold: " . session()->get('is_gold') . "</p>";
-
-        if ($userUpdated['is_gold'] == 1) {
-            echo "<p style='color:green'>✅ SUCCÈS TOTAL ! L'utilisateur est maintenant Gold</p>";
-        } else {
-            echo "<p style='color:red'>❌ ÉCHEC : is_gold n'a pas été mis à jour</p>";
+        if (!$updateResult) {
+            // Si erreur, recréditer le wallet
+            $this->walletModel->crediter($userId, $prixGold, 'Annulation achat Gold - remboursement');
+            return redirect()->back()->with('error', 'Erreur lors de l\'activation du compte Gold');
         }
 
-        // die();
+        // 3. Mettre à jour la session
+        session()->set('is_gold', 1);
 
-        // Rediriger avec message de succès
+        $nouveauSolde = $this->walletModel->getSolde($userId);
+
         return redirect()->to('/dashboard')->with(
             'success',
             '🎉 Félicitations ! Vous êtes maintenant membre Gold !<br>' .

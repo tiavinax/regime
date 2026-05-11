@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #F9F6F0; }
-        .admin-container { display: flex; min-height: 100vh; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9F6F0;
+        }
+
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
         .sidebar {
             width: 280px;
             background: #1E2A2E;
@@ -18,6 +32,7 @@
             position: fixed;
             height: 100vh;
         }
+
         .sidebar .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -27,7 +42,11 @@
             text-decoration: none;
             display: block;
         }
-        .sidebar .logo span { color: #F4A261; }
+
+        .sidebar .logo span {
+            color: #F4A261;
+        }
+
         .sidebar nav a {
             display: flex;
             align-items: center;
@@ -38,12 +57,18 @@
             border-radius: 12px;
             margin-bottom: 8px;
         }
-        .sidebar nav a:hover { background: #5D9B6E; color: white; }
+
+        .sidebar nav a:hover {
+            background: #5D9B6E;
+            color: white;
+        }
+
         .main-content {
             flex: 1;
             margin-left: 280px;
             padding: 20px 30px;
         }
+
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -52,6 +77,7 @@
             padding-bottom: 20px;
             border-bottom: 1px solid #EDE9E2;
         }
+
         .logout-btn {
             background: #E76F51;
             color: white;
@@ -59,30 +85,36 @@
             border-radius: 40px;
             text-decoration: none;
         }
+
         .form-card {
             background: white;
             border-radius: 20px;
             padding: 30px;
             max-width: 800px;
             margin: 0 auto;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
         }
+
         .form-group {
             margin-bottom: 20px;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: #1E2A2E;
         }
-        .form-group input, .form-group select {
+
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #EDE9E2;
             border-radius: 12px;
             font-family: 'Inter', sans-serif;
         }
+
         .btn-save {
             background: #5D9B6E;
             color: white;
@@ -92,6 +124,7 @@
             cursor: pointer;
             font-weight: 600;
         }
+
         .btn-back {
             background: #95A5A6;
             color: white;
@@ -100,6 +133,7 @@
             text-decoration: none;
             display: inline-block;
         }
+
         .help-text {
             font-size: 0.8rem;
             color: #6B7A6F;
@@ -107,19 +141,12 @@
         }
     </style>
 </head>
+
 <body>
     <div class="admin-container">
-        <div class="sidebar">
-            <a href="/admin" class="logo">Nutri<span>Goal</span></a>
-            <nav>
-                <a href="/admin"><i class="fas fa-chart-line"></i> Dashboard</a>
-                <a href="/admin/regimes"><i class="fas fa-utensils"></i> Régimes</a>
-                <a href="/admin/activites"><i class="fas fa-running"></i> Activités</a>
-                <a href="/admin/users"><i class="fas fa-users"></i> Utilisateurs</a>
-                <a href="/admin/codes" class="active"><i class="fas fa-ticket-alt"></i> Codes promo</a>
-                <a href="/admin/parametres"><i class="fas fa-cog"></i> Paramètres</a>
-            </nav>
-        </div>
+        <!-- START MENU  -->
+        <?= $this->include('partials/navbar') ?>
+        <!-- END MENU  -->
 
         <div class="main-content">
             <div class="top-bar">
@@ -174,4 +201,5 @@
         </div>
     </div>
 </body>
+
 </html>

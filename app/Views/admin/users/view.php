@@ -140,17 +140,9 @@
 
 <body>
     <div class="admin-container">
-        <div class="sidebar">
-            <a href="/admin" class="logo">Nutri<span>Goal</span></a>
-            <nav>
-                <a href="/admin"><i class="fas fa-chart-line"></i> Dashboard</a>
-                <a href="/admin/regimes"><i class="fas fa-utensils"></i> Régimes</a>
-                <a href="/admin/activites"><i class="fas fa-running"></i> Activités</a>
-                <a href="/admin/users" class="active"><i class="fas fa-users"></i> Utilisateurs</a>
-                <a href="/admin/codes"><i class="fas fa-ticket-alt"></i> Codes promo</a>
-                <a href="/admin/parametres"><i class="fas fa-cog"></i> Paramètres</a>
-            </nav>
-        </div>
+        <!-- START MENU  -->
+        <?= $this->include('partials/navbar') ?>
+        <!-- END MENU  -->
 
         <div class="main-content">
             <div class="top-bar">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,8 +28,8 @@
             --white: #FFFFFF;
             --gray-light: #EDE9E2;
             --text-dark: #1E2A2E;
-            --shadow-sm: 0 8px 20px rgba(0,0,0,0.05);
-            --shadow-md: 0 12px 28px rgba(0,0,0,0.08);
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.08);
             --radius-card: 20px;
         }
 
@@ -74,7 +75,8 @@
             transition: all 0.2s;
         }
 
-        .sidebar nav a:hover, .sidebar nav a.active {
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
             background: var(--primary);
             color: white;
         }
@@ -231,7 +233,8 @@
             border-collapse: collapse;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid var(--gray-light);
@@ -266,41 +269,24 @@
             .sidebar {
                 display: none;
             }
+
             .main-content {
                 margin-left: 0;
             }
+
             .charts-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="admin-container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <a href="/admin" class="logo">Nutri<span>Goal</span></a>
-                    <nav>
-    <a href="/admin" class="active">
-        <i class="fas fa-chart-line"></i> Dashboard
-    </a>
-    <a href="/admin/regimes">
-        <i class="fas fa-utensils"></i> Régimes
-    </a>
-    <a href="/admin/activites">
-        <i class="fas fa-running"></i> Activités
-    </a>
-    <a href="/admin/users">
-        <i class="fas fa-users"></i> Utilisateurs
-    </a>
-    <a href="/admin/codes">
-        <i class="fas fa-ticket-alt"></i> Codes promo
-    </a>
-    <a href="/admin/parametres">
-        <i class="fas fa-cog"></i> Paramètres
-    </a>
-</nav>
-        </div>
+
+        <!-- START MENU  -->
+        <?= $this->include('partials/navbar') ?>
+        <!-- END MENU  -->
 
         <!-- Main Content -->
         <div class="main-content">
@@ -364,12 +350,12 @@
             <div class="top-regimes">
                 <h3><i class="fas fa-trophy"></i> Top 3 régimes les plus suggérés</h3>
                 <div class="regime-list">
-                    <?php if(!empty($top_regimes)): ?>
-                        <?php foreach($top_regimes as $regime): ?>
-                        <div class="regime-item">
-                            <div class="name"><?= esc($regime['nom_regime']) ?></div>
-                            <div class="count"><?= $regime['count'] ?> suggestions</div>
-                        </div>
+                    <?php if (!empty($top_regimes)): ?>
+                        <?php foreach ($top_regimes as $regime): ?>
+                            <div class="regime-item">
+                                <div class="name"><?= esc($regime['nom_regime']) ?></div>
+                                <div class="count"><?= $regime['count'] ?> suggestions</div>
+                            </div>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <p>Aucune suggestion pour le moment</p>
@@ -393,21 +379,21 @@
                         </thead>
                         <tbody>
                             <?php foreach ($recent_users as $user): ?>
-                            <tr>
-                                <td><?= esc($user['nom']) ?></td>
-                                <td><?= esc($user['email']) ?></td>
-                                <td><?= $user['genre'] === 'homme' ? '👨 Homme' : '👩 Femme' ?></td>
-                                <td><?= date('d/m/Y', strtotime($user['date_inscription'])) ?></td>
-                                <td>
-                                    <?php if($user['role'] === 'admin'): ?>
-                                        <span class="admin-badge"><i class="fas fa-shield-alt"></i> Admin</span>
-                                    <?php elseif($user['is_gold']): ?>
-                                        <span class="gold-badge"><i class="fas fa-crown"></i> Gold</span>
-                                    <?php else: ?>
-                                        <span style="color: #6B7A6F;">Standard</span>
-                                    <?php endif; ?>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td><?= esc($user['nom']) ?></td>
+                                    <td><?= esc($user['email']) ?></td>
+                                    <td><?= $user['genre'] === 'homme' ? '👨 Homme' : '👩 Femme' ?></td>
+                                    <td><?= date('d/m/Y', strtotime($user['date_inscription'])) ?></td>
+                                    <td>
+                                        <?php if ($user['role'] === 'admin'): ?>
+                                            <span class="admin-badge"><i class="fas fa-shield-alt"></i> Admin</span>
+                                        <?php elseif ($user['is_gold']): ?>
+                                            <span class="gold-badge"><i class="fas fa-crown"></i> Gold</span>
+                                        <?php else: ?>
+                                            <span style="color: #6B7A6F;">Standard</span>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -467,7 +453,9 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        ticks: { stepSize: 1 }
+                        ticks: {
+                            stepSize: 1
+                        }
                     }
                 }
             }
@@ -500,4 +488,5 @@
         });
     </script>
 </body>
+
 </html>

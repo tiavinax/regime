@@ -99,9 +99,13 @@ $routes->post('/wallet/ajouter-argent', 'WalletController::ajouterArgent');
 // Option Gold
 $routes->get('/gold', 'GoldController::index');
 $routes->post('/gold/acheter', 'GoldController::acheter');
-// Dans Routes.php
+// routes de debug
 $routes->get('/gold/test-update', 'GoldController::testUpdate');
 $routes->get('/gold/test-acheter', 'GoldController::testAcheter');
 $routes->get('/gold/test-debit', 'GoldController::testDebiter');
 $routes->get('/gold/test-edit', 'GoldController::testSetGold');
 
+// Reset database 
+$routes->get('/admin/reset', 'ResetController::index');
+$routes->post('/admin/reset/execute', 'ResetController::execute');
+$routes->get('/test-file', 'ResetController::testFile');

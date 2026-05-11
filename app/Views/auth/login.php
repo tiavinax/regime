@@ -1,6 +1,18 @@
 <?= $this->extend('layout/header') ?>
 <?= $this->section('content') ?>
 
+    <style>
+        .default-user{
+            font-size: 13px;
+        }
+        .span-user {
+            font-weight: bold;
+        }
+        .section-test {
+            margin-top: 4%;
+        }
+    </style>
+
 <div class="form-card" style="max-width: 480px;">
     <h1 class="form-title">Connexion</h1>
     <p class="form-subtitle">Retrouvez votre espace personnalisé</p>
@@ -16,7 +28,7 @@
         
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="<?= old('email') ?? "marie.martin@email.com"; ?>" required autofocus>
+            <input type="email" id="email" name="email" value="<?= old('email') ?? "admin@nutrigoal.com"; ?>" required autofocus>
         </div>
         
         <div class="form-group">
@@ -32,6 +44,10 @@
     <p style="text-align: center; margin-top: 24px;">
         Pas encore de compte ? <a href="/register" style="color: var(--primary);">S'inscrire</a>
     </p>
+    <div class="section-test">
+        <p class="default-user"><span class="span-user">user :</span> sophie.bernard@email.com <span class="span-user">Mdp :</span> password</p>
+        <p class="default-user"><span class="span-user">admin :</span> admin@nutrigoal.com <span class="span-user">Mdp :</span> password</p>
+    </div>
 </div>
 
 <?= $this->endSection() ?>
