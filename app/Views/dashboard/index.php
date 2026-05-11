@@ -28,7 +28,7 @@
                     <i class="fas fa-crown"></i> Membre Gold
                 </span>
             <?php else: ?>
-                <a href="/gold/acheter" class="btn-outline">Devenir Gold <i class="fas fa-gem"></i></a>
+                <a href="/gold" class="btn-outline">Devenir Gold <i class="fas fa-gem"></i></a>
             <?php endif; ?>
         </div>
     </div>

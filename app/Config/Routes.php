@@ -92,5 +92,16 @@ $routes->group('admin/parametres', function($routes) {
 // Porte-monnaie
 $routes->get('/wallet', 'WalletController::index');
 $routes->post('/wallet/appliquer-code', 'WalletController::appliquerCode');
+$routes->post('/wallet/appliquer-code-post', 'WalletController::appliquerCodePost');
 $routes->post('/wallet/acheter-regime', 'WalletController::acheterRegime');
 $routes->post('/wallet/ajouter-argent', 'WalletController::ajouterArgent');
+
+// Option Gold
+$routes->get('/gold', 'GoldController::index');
+$routes->post('/gold/acheter', 'GoldController::acheter');
+// Dans Routes.php
+$routes->get('/gold/test-update', 'GoldController::testUpdate');
+$routes->get('/gold/test-acheter', 'GoldController::testAcheter');
+$routes->get('/gold/test-debit', 'GoldController::testDebiter');
+$routes->get('/gold/test-edit', 'GoldController::testSetGold');
+

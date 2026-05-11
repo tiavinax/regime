@@ -14,25 +14,25 @@ class WalletModel extends Model
         'solde',
         'date_mise_a_jour'
     ];
-    
+
     protected $useTimestamps = false;
     protected $useSoftDeletes = false;
-    
+
     /**
      * Récupère le solde d'un utilisateur
      */
     public function getSolde(int $userId): float
     {
         $wallet = $this->where('id_utilisateur', $userId)->first();
-        
+
         if (!$wallet) {
             $this->creerWallet($userId);
             return 0;
         }
-        
+
         return (float) $wallet['solde'];
     }
-    
+
     /**
      * Crée un wallet pour un utilisateur
      */
@@ -46,46 +46,46 @@ class WalletModel extends Model
         }
         return true;
     }
-    
+
     /**
      * Crédite le compte d'un utilisateur
      */
     public function crediter(int $userId, float $montant, string $description = ''): bool
     {
         $this->creerWallet($userId);
-        
+
         $wallet = $this->where('id_utilisateur', $userId)->first();
         $nouveauSolde = $wallet['solde'] + $montant;
-        
+
         $this->update($wallet['id'], ['solde' => $nouveauSolde]);
-        
+
         // Enregistrer la transaction
         $transactionModel = new TransactionModel();
         $transactionModel->enregistrer($userId, $montant, 'credit', $description);
-        
+
         return true;
     }
-    
+
     /**
      * Débite le compte d'un utilisateur
      */
     public function debiter(int $userId, float $montant, string $description = ''): bool
     {
         $this->creerWallet($userId);
-        
+
         $wallet = $this->where('id_utilisateur', $userId)->first();
-        
-        if ($wallet['solde'] < $montant) {
+
+        if (!$wallet || (float) $wallet['solde'] < $montant) {
             return false;
         }
-        
-        $nouveauSolde = $wallet['solde'] - $montant;
+
+        $nouveauSolde = (float) $wallet['solde'] - $montant;
         $this->update($wallet['id'], ['solde' => $nouveauSolde]);
-        
-        // Enregistrer la transaction
+
+        // Utiliser le modèle de transaction
         $transactionModel = new TransactionModel();
         $transactionModel->enregistrer($userId, $montant, 'debit', $description);
-        
+
         return true;
     }
 }

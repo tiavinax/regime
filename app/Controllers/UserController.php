@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 
-class LoginController extends BaseController {
+class UserController extends BaseController {
 
     
     public function save() {

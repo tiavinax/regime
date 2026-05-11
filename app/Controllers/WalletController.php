@@ -128,6 +128,69 @@ class WalletController extends BaseController
     }
 
     /**
+     * Applique un code promo (version formulaire classique)
+     */
+    public function appliquerCodePost()
+    {
+        if (!session()->has('user_id')) {
+            return redirect()->to('/login')->with('error', 'Veuillez vous connecter');
+        }
+
+        $code = trim($this->request->getPost('code'));
+
+        if (empty($code)) {
+            return redirect()->back()->with('error', 'Veuillez entrer un code');
+        }
+
+        $userId = session()->get('user_id');
+
+        // Vérifier le code dans la base
+        $codeData = $this->codeModel->where('code', strtoupper($code))->first();
+
+        if (!$codeData) {
+            return redirect()->back()->with('error', 'Code promo invalide');
+        }
+
+        if ($codeData['est_actif'] == 0) {
+            return redirect()->back()->with('error', 'Code promo désactivé');
+        }
+
+        if ($codeData['est_utilise'] == 1) {
+            return redirect()->back()->with('error', 'Code déjà utilisé');
+        }
+
+        // Vérifier les utilisations max
+        if ($codeData['utilisations_max'] !== null && $codeData['utilisations_actuelles'] >= $codeData['utilisations_max']) {
+            return redirect()->back()->with('error', 'Code promo expiré');
+        }
+
+        // Vérifier date expiration
+        if ($codeData['date_expiration'] && strtotime($codeData['date_expiration']) < time()) {
+            return redirect()->back()->with('error', 'Code promo expiré');
+        }
+
+        $montant = (float) $codeData['valeur'];
+
+        // Créditer le wallet
+        $this->walletModel->crediter($userId, $montant, 'Code promo: ' . strtoupper($code));
+
+        // Mettre à jour le code
+        $updateData = [
+            'utilisations_actuelles' => $codeData['utilisations_actuelles'] + 1,
+            'id_utilisateur' => $userId,
+            'date_utilisation' => date('Y-m-d H:i:s')
+        ];
+
+        if (($codeData['utilisations_max'] ?? 0) == 1) {
+            $updateData['est_utilise'] = 1;
+        }
+
+        $this->codeModel->update($codeData['id'], $updateData);
+
+        return redirect()->back()->with('success', $montant . ' € ajoutés à votre porte-monnaie !');
+    }
+
+    /**
      * Achète un régime
      * URL: POST /wallet/acheter-regime
      */
@@ -181,17 +244,16 @@ class WalletController extends BaseController
             return redirect()->back()->with('error', 'Erreur lors du paiement');
         }
 
-        // TODO: Enregistrer l'achat dans une table "achats" si nécessaire
-
         $nouveauSolde = $this->walletModel->getSolde($userId);
 
-        return redirect()->to('/dashboard')->with(
+        // Rediriger vers la page du régime avec un message de succès
+        return redirect()->to('/regimes/' . $regimeId)->with(
             'success',
-            'Achat effectué avec succès !<br>' .
-                'Régime: ' . $regime['nom_regime'] . '<br>' .
-                'Durée: ' . $dureeSemaines . ' semaines<br>' .
-                'Prix: ' . number_format($prixTotal, 2) . ' €<br>' .
-                'Solde restant: ' . number_format($nouveauSolde, 2) . ' €'
+            '✅ Achat effectué avec succès !<br>' .
+                '📦 Régime: ' . $regime['nom_regime'] . '<br>' .
+                '📅 Durée: ' . $dureeSemaines . ' semaines<br>' .
+                '💰 Prix: ' . number_format($prixTotal, 2) . ' €<br>' .
+                '💵 Solde restant: ' . number_format($nouveauSolde, 2) . ' €'
         );
     }
 

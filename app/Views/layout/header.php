@@ -1,3 +1,7 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -330,12 +334,17 @@
         <div class="nav-container">
             <a href="/" class="logo">Nutri<span>Goal</span></a>
             <div class="nav-links">
-                <a href="/">Accueil</a>
-                <a href="/dashboard">Mon profil</a>
-                <a href="/regimes">Régimes</a>
-                <a href="/sports">Sports</a>
+                <a href="<?= base_url('/') ?>">Accueil</a>
+                <a href="<?= base_url('/dashboard') ?>">Mon profil</a>
+                <a href="<?= base_url('/regimes') ?>">Régimes</a>
+                <a href="<?= base_url('/sports') ?>">Sports</a>
                 <?php if (session()->has('user_id')): ?>
-                    <a href="/wallet">💰 Porte-monnaie</a>
+                    <a href="<?= base_url('/wallet') ?>">💰 Porte-monnaie</a>
+                    <?php if (!(session()->get('is_gold') ?? false)): ?>
+                        <a href="/gold" style="color: #E76F51;">💎 Gold</a>
+                    <?php else: ?>
+                        <a href="#" style="color: #F4A261;">👑 Gold</a>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
             <div class="nav-buttons">
