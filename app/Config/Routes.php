@@ -26,6 +26,12 @@ $routes->post('/register/step2', 'AuthController::doRegisterStep2');
 $routes->get('/objectif/choisir', 'ObjectifController::choisir');
 $routes->post('/objectif/doChoisir', 'ObjectifController::doChoisir');
 
+// Régimes et Sports
+$routes->get('/regimes', 'RegimeController::index');
+$routes->get('/regimes/(:num)', 'RegimeController::show/$1');
+$routes->get('/sports', 'SportController::index');
+$routes->get('/sports/(:num)', 'SportController::show/$1');
+
 // Dashboard
 $routes->get('/dashboard', 'DashboardController::index');
 $routes->get('/suggestion/refresh', 'DashboardController::refreshSuggestion');
@@ -81,3 +87,10 @@ $routes->group('admin/parametres', function($routes) {
     $routes->get('/', 'AdminParametreController::index');
     $routes->post('update/(:num)', 'AdminParametreController::update/$1');
 });
+
+
+// Porte-monnaie
+$routes->get('/wallet', 'WalletController::index');
+$routes->post('/wallet/appliquer-code', 'WalletController::appliquerCode');
+$routes->post('/wallet/acheter-regime', 'WalletController::acheterRegime');
+$routes->post('/wallet/ajouter-argent', 'WalletController::ajouterArgent');
