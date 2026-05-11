@@ -338,7 +338,5 @@
 </div>
 
 <main class="main-content">
-    <?= $this->renderSection('content') ?>  <!-- CE CI EST CRUCIAL ! -->
+    <?= $this->renderSection('content') ?> 
 </main>
-
-<!-- Le footer sera inclus séparément -->

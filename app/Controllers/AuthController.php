@@ -12,10 +12,15 @@ class AuthController extends BaseController
     public function login()
     {
         if (session()->has('user_id')) {
+            // Redirection selon le rôle
+            if (session()->get('role') === 'admin') {
+                return redirect()->to('/admin');
+            }
             return redirect()->to('/dashboard');
         }
         return view('auth/login');
     }
+
 
     public function registerStep1()
     {
@@ -196,16 +201,23 @@ class AuthController extends BaseController
                 ->with('error', 'Email ou mot de passe incorrect');
         }
 
+        // Stocker en session
         session()->set([
             'user_id' => $user['id'],
             'user_nom' => $user['nom'],
             'user_email' => $user['email'],
             'user_genre' => $user['genre'],
+            'role' => $user['role'] ?? 'user',  // Ajouter le rôle
             'is_gold' => $user['is_gold'] ?? 0,
             'is_logged_in' => true
         ]);
 
-        // Vérifier si l'utilisateur a déjà un objectif
+        // Redirection selon le rôle
+        if (($user['role'] ?? 'user') === 'admin') {
+            return redirect()->to('/admin')->with('success', 'Bienvenue dans l\'espace admin ' . $user['nom'] . ' !');
+        }
+
+        // Pour les utilisateurs normaux
         $objectifModel = new \App\Models\ObjectifModel();
         $objectifActif = $objectifModel->getObjectifActif($user['id']);
 
