@@ -46,14 +46,13 @@ class AuthController extends BaseController
      */
     public function doRegisterStep1()
     {
-        // Validation assouplie pour le mot de passe
+        // Validation sans confirm_password
         $rules = [
             'nom' => 'required|min_length[2]|max_length[100]',
             'email' => 'required|valid_email|is_unique[utilisateur.email]',
             'genre' => 'required|in_list[homme,femme]',
             'date_naissance' => 'required|valid_date',
-            'password' => 'required|min_length[4]',  // Plus que 4 caractères minimum
-            'confirm_password' => 'required|matches[password]'
+            'password' => 'required|min_length[4]'  // Plus besoin de confirm_password
         ];
 
         if (!$this->validate($rules)) {

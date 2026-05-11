@@ -19,6 +19,7 @@ class DashboardController extends BaseController
     protected $suggestionModel;
     protected $regimeModel;
     protected $activiteModel;
+    protected $helpers = ['pdf']; 
 
     public function __construct()
     {
@@ -101,20 +102,28 @@ class DashboardController extends BaseController
             'isGold' => session()->get('is_gold') ?? false
         ]);
     }
-    
+
     public function refreshSuggestion()
     {
         $userId = session()->get('user_id');
         if (!$userId) {
             return redirect()->to('/login');
         }
-        
+
         // Rediriger vers l'objectif pour régénérer
         return redirect()->to('/objectif/choisir')->with('info', 'Redéfinissez votre objectif pour une nouvelle suggestion');
     }
-    
-    public function exportPdf()
-    {
-        return redirect()->to('/dashboard')->with('info', 'Fonctionnalité PDF à venir');
+
+    public function exportPdf() {
+        $userId = session()->get('user_id');
+        if (!$userId) {
+            return redirect()->to('/login');
+        }
+
+        // Charger le helper
+        helper('pdf');
+
+        // Générer le PDF
+        genererPDFSuggestion($userId);
     }
 }

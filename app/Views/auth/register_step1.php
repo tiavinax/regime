@@ -5,7 +5,6 @@
     <h1 class="form-title">Créer mon compte</h1>
     <p class="form-subtitle">Étape 1 sur 2 — Vos informations personnelles</p>
     
-    <!-- Wizard progress -->
     <div class="wizard-steps">
         <div class="step active">
             <div class="step-circle">1</div>
@@ -50,15 +49,19 @@
             <input type="date" id="date_naissance" name="date_naissance" value="<?= old('date_naissance') ?>" required>
         </div>
         
+        <!-- Champ mot de passe avec toggle œil -->
         <div class="form-group">
             <label for="password">Mot de passe *</label>
-            <input type="password" id="password" name="password" required>
+            <div style="position: relative;">
+                <input type="password" id="password" name="password" required style="padding-right: 45px;">
+                <button type="button" id="togglePassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-muted);">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
             <span style="font-size: 0.75rem; color: var(--text-muted);">Minimum 4 caractères</span>
-        </div>
-        
-        <div class="form-group">
-            <label for="confirm_password">Confirmer le mot de passe *</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
+            <?php if(session('errors.password')): ?>
+                <span class="error"><?= session('errors.password') ?></span>
+            <?php endif; ?>
         </div>
         
         <button type="submit" class="btn-primary" style="width: 100%; padding: 14px;">
@@ -72,24 +75,15 @@
 </div>
 
 <script>
-// Validation simple : juste vérifier que les 2 mots de passe correspondent
-const password = document.getElementById('password');
-const confirmPassword = document.getElementById('confirm_password');
+// Toggle password visibility
+const togglePassword = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password');
 
-confirmPassword.addEventListener('input', function() {
-    if(password.value !== this.value) {
-        this.setCustomValidity('Les mots de passe ne correspondent pas');
-    } else {
-        this.setCustomValidity('');
-    }
-});
-
-password.addEventListener('input', function() {
-    if(confirmPassword.value !== this.value) {
-        confirmPassword.setCustomValidity('Les mots de passe ne correspondent pas');
-    } else {
-        confirmPassword.setCustomValidity('');
-    }
+togglePassword.addEventListener('click', function() {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    this.querySelector('i').classList.toggle('fa-eye');
+    this.querySelector('i').classList.toggle('fa-eye-slash');
 });
 </script>
 
