@@ -1,0 +1,148 @@
+<?= $this->extend('layout/header') ?>
+
+<?= $this->section('content') ?>
+
+<div class="page-header">
+    <div class="container">
+        <a href="/sports" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux activités</a>
+        <h1><?= esc($activite['nom_activite']) ?></h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="detail-grid">
+        <div class="detail-main">
+            <div class="detail-card">
+                <h2>Description</h2>
+                <p><?= nl2br(esc($activite['description'])) ?></p>
+            </div>
+
+            <div class="detail-card">
+                <h2>Informations</h2>
+                <div class="features-list">
+                    <div class="feature">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <strong>Type</strong>
+                            <span>
+                                <?php if($activite['type_cible'] == 'augmenter'): ?>⬆️ Prise de muscle
+                                <?php elseif($activite['type_cible'] == 'reduire'): ?>⬇️ Perte de poids
+                                <?php else: ?>⚖️ Maintien<?php endif; ?>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <strong>Dépense calorique</strong>
+                            <span><?= $activite['depense_calorique_estimee'] ?> kcal par heure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-sidebar">
+            <div class="sidebar-card">
+                <div class="benefits">
+                    <h3><i class="fas fa-check-circle"></i> Bienfaits</h3>
+                    <ul>
+                        <li>Améliore la santé cardiovasculaire</li>
+                        <li>Renforce le système immunitaire</li>
+                        <li>Réduit le stress</li>
+                        <li>Améliore le sommeil</li>
+                    </ul>
+                </div>
+                
+                <?php if(session()->has('user_id')): ?>
+                    <a href="/dashboard" class="btn-primary" style="width: 100%; text-align: center;">Ajouter à mon programme</a>
+                <?php else: ?>
+                    <a href="/register" class="btn-primary" style="width: 100%; text-align: center;">S'inscrire pour commencer</a>
+                    <p class="login-prompt">Déjà inscrit ? <a href="/login">Se connecter</a></p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 40px 0;
+    }
+    .back-link {
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+    .detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 40px;
+        margin: 40px 0;
+    }
+    .detail-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow-sm);
+    }
+    .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .feature {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .feature i {
+        font-size: 1.5rem;
+        color: var(--primary);
+        width: 40px;
+    }
+    .sidebar-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: var(--shadow-sm);
+        position: sticky;
+        top: 100px;
+    }
+    .benefits h3 {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+    .benefits ul {
+        list-style: none;
+        padding: 0;
+    }
+    .benefits li {
+        padding: 8px 0;
+        border-bottom: 1px solid var(--gray-light);
+    }
+    .benefits li:last-child {
+        border-bottom: none;
+    }
+    .benefits i {
+        color: var(--primary);
+        margin-right: 10px;
+    }
+    .login-prompt {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 0.85rem;
+    }
+    @media (max-width: 768px) {
+        .detail-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<?= $this->endSection() ?>
+<?= $this->include('layout/footer') ?>

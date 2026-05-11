@@ -1,0 +1,107 @@
+<?= $this->extend('layout/header') ?>
+
+<?= $this->section('content') ?>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Contactez-nous</h1>
+        <p>Une question ? Notre équipe est là pour vous répondre</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="contact-grid">
+        <div class="contact-info">
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>contact@nutrigoal.com</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-phone"></i>
+                <h3>Téléphone</h3>
+                <p>+33 1 23 45 67 89</p>
+            </div>
+            <div class="info-card">
+                <i class="fab fa-facebook"></i>
+                <h3>Facebook</h3>
+                <p>@NutriGoal</p>
+            </div>
+            <div class="info-card">
+                <i class="fab fa-instagram"></i>
+                <h3>Instagram</h3>
+                <p>@nutrigoal_official</p>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <h2>Envoyez-nous un message</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Votre message..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+    }
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .info-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+    }
+    .info-card i {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    .contact-form {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: var(--shadow-sm);
+    }
+    .contact-form h2 {
+        margin-bottom: 25px;
+        color: var(--primary);
+    }
+    @media (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<?= $this->endSection() ?>
+<?= $this->include('layout/footer') ?>

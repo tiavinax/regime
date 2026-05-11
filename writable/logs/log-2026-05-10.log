@@ -1,0 +1,566 @@
+ERROR - 2026-05-10 18:32:21 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Controllers/AdminController.php(65): CodeIgniter\BaseModel->first()
+#7 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/CodeIgniter.php(951): App\Controllers\AdminController->doLogin()
+#8 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/rewrite.php(44): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Controllers/AdminController.php(65): CodeIgniter\BaseModel->first()
+#6 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/CodeIgniter.php(951): App\Controllers\AdminController->doLogin()
+#7 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 /home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/system/rewrite.php(44): require_once('...')
+#13 {main}
+CRITICAL - 2026-05-10 18:32:21 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+[Method: POST, Route: admin/doLogin]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AdminController.php(65): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AdminController->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:07:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/login.php"
+[Method: GET, Route: admin/login]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/AdminController.php(84): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AdminController->login()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:07:53 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "admin/login.php"
+[Method: GET, Route: admin/login]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/AdminController.php(84): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AdminController->login()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:24:23 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:24:26 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:24:27 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:24:27 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:24:28 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:24:28 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:35:23 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "\App\Controllers\AuthController::home"
+[Method: GET, Route: %5CApp%5CControllers%5CAuthController::home]
+in SYSTEMPATH/Router/Router.php on line 768.
+ 1 SYSTEMPATH/Router/Router.php(219): CodeIgniter\Router\Router->checkDisallowedChars()
+ 2 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 3 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:35:25 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "\App\Controllers\AuthController::home"
+[Method: GET, Route: %5CApp%5CControllers%5CAuthController::home]
+in SYSTEMPATH/Router/Router.php on line 768.
+ 1 SYSTEMPATH/Router/Router.php(219): CodeIgniter\Router\Router->checkDisallowedChars()
+ 2 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 3 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:35:35 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "\App\Controllers\AuthController::home"
+[Method: GET, Route: %5CApp%5CControllers%5CAuthController::home]
+in SYSTEMPATH/Router/Router.php on line 768.
+ 1 SYSTEMPATH/Router/Router.php(219): CodeIgniter\Router\Router->checkDisallowedChars()
+ 2 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 3 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:37:21 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "\App\Controllers\AuthController::home"
+[Method: GET, Route: %5CApp%5CControllers%5CAuthController::home]
+in SYSTEMPATH/Router/Router.php on line 768.
+ 1 SYSTEMPATH/Router/Router.php(219): CodeIgniter\Router\Router->checkDisallowedChars()
+ 2 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 3 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:44:44 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:44:47 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:44:48 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:46:34 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:46:35 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:47:38 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "\App\Controllers\AuthController::home"
+[Method: GET, Route: %5CApp%5CControllers%5CAuthController::home]
+in SYSTEMPATH/Router/Router.php on line 768.
+ 1 SYSTEMPATH/Router/Router.php(219): CodeIgniter\Router\Router->checkDisallowedChars()
+ 2 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 3 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:47:47 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:47:51 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:19 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:20 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:21 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:21 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:21 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:21 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:21 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:21 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:22 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:22 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:22 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:22 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:22 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:51:40 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:55:42 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')
+CRITICAL - 2026-05-10 20:58:44 --> ErrorException: Undefined variable $regimes_populaires
+[Method: GET, Route: /]
+in APPPATH/Views/pages/home.php on line 72.
+ 1 APPPATH/Views/pages/home.php(72): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/app/Views/pages/home.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/AuthController.php(39): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AuthController->home()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/fyh/Documents/S4/SYST-INF-Mr-Rojo/regime/public/index.php')

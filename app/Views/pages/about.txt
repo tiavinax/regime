@@ -1,0 +1,84 @@
+<?= $this->extend('layout/header') ?>
+
+<?= $this->section('content') ?>
+
+<div class="page-header">
+    <div class="container">
+        <h1>À propos de NutriGoal</h1>
+        <p>Notre mission : vous aider à atteindre vos objectifs de santé</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="about-content">
+        <div class="about-section">
+            <h2>Notre histoire</h2>
+            <p>NutriGoal est né d'une passion commune pour la nutrition et le bien-être. Fondée en 2024, notre plateforme a déjà accompagné plus de 2500 utilisateurs dans leur parcours santé.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>Notre approche</h2>
+            <p>Nous croyons en une approche personnalisée et durable. Chaque utilisateur est unique, c'est pourquoi nous offrons des recommandations sur mesure basées sur vos objectifs, votre métabolisme et vos préférences.</p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fas fa-heart"></i>
+                <h3>Bienveillance</h3>
+                <p>Un accompagnement sans jugement</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Efficacité</h3>
+                <p>Des résultats mesurables</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-users"></i>
+                <h3>Communauté</h3>
+                <p>Échange et partage d'expériences</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .about-content {
+        max-width: 800px;
+        margin: 0 auto 60px;
+    }
+    .about-section {
+        margin-bottom: 40px;
+    }
+    .about-section h2 {
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+    .value-card {
+        text-align: center;
+        padding: 30px;
+        background: var(--white);
+        border-radius: 20px;
+        box-shadow: var(--shadow-sm);
+    }
+    .value-card i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+</style>
+
+<?= $this->endSection() ?>
+<?= $this->include('layout/footer') ?>

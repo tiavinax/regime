@@ -13,7 +13,7 @@
         </div>
         <div class="step">
             <div class="step-circle">2</div>
-            <div class="step-label">Santé & objectif</div>
+            <div class="step-label">Santé</div>
         </div>
     </div>
     
@@ -53,7 +53,7 @@
         <div class="form-group">
             <label for="password">Mot de passe *</label>
             <input type="password" id="password" name="password" required>
-            <span class="error" id="passwordError" style="display: none;">Au moins 8 caractères, 1 majuscule, 1 chiffre</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Minimum 4 caractères</span>
         </div>
         
         <div class="form-group">
@@ -72,17 +72,23 @@
 </div>
 
 <script>
-// Validation mot de passe en temps réel (UX)
+// Validation simple : juste vérifier que les 2 mots de passe correspondent
 const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm_password');
-const passwordError = document.getElementById('passwordError');
+
+confirmPassword.addEventListener('input', function() {
+    if(password.value !== this.value) {
+        this.setCustomValidity('Les mots de passe ne correspondent pas');
+    } else {
+        this.setCustomValidity('');
+    }
+});
 
 password.addEventListener('input', function() {
-    const regex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
-    if(!regex.test(this.value)) {
-        passwordError.style.display = 'block';
+    if(confirmPassword.value !== this.value) {
+        confirmPassword.setCustomValidity('Les mots de passe ne correspondent pas');
     } else {
-        passwordError.style.display = 'none';
+        confirmPassword.setCustomValidity('');
     }
 });
 </script>

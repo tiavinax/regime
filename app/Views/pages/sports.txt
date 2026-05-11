@@ -1,0 +1,146 @@
+<?= $this->extend('layout/header') ?>
+
+<?= $this->section('content') ?>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Activités sportives</h1>
+        <p>Des exercices adaptés à vos objectifs et votre niveau</p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Filtres -->
+    <div class="filters-section">
+        <div class="filter-buttons">
+            <a href="/sports" class="filter-btn <?= !isset($categorie) ? 'active' : '' ?>">Tous</a>
+            <a href="/sports/categorie/augmenter" class="filter-btn <?= ($categorie ?? '') == 'augmenter' ? 'active' : '' ?>">⬆️ Prise de muscle</a>
+            <a href="/sports/categorie/reduire" class="filter-btn <?= ($categorie ?? '') == 'reduire' ? 'active' : '' ?>">⬇️ Cardio / Perte</a>
+            <a href="/sports/categorie/maintenir" class="filter-btn <?= ($categorie ?? '') == 'maintenir' ? 'active' : '' ?>">⚖️ Équilibre</a>
+        </div>
+    </div>
+
+    <!-- Liste des activités -->
+    <div class="sports-grid">
+        <?php if(empty($activites)): ?>
+            <div class="no-results">
+                <i class="fas fa-search"></i>
+                <p>Aucune activité trouvée dans cette catégorie</p>
+                <a href="/sports" class="btn-primary">Voir toutes les activités</a>
+            </div>
+        <?php else: ?>
+            <?php foreach($activites as $activite): ?>
+            <div class="sport-card">
+                <div class="sport-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3><?= esc($activite['nom_activite']) ?></h3>
+                <p><?= substr(esc($activite['description']), 0, 100) ?>...</p>
+                <div class="sport-meta">
+                    <span class="badge badge-<?= $activite['type_cible'] ?>">
+                        <?php if($activite['type_cible'] == 'augmenter'): ?>⬆️ Prise de muscle
+                        <?php elseif($activite['type_cible'] == 'reduire'): ?>⬇️ Perte de poids
+                        <?php else: ?>⚖️ Maintien<?php endif; ?>
+                    </span>
+                    <span class="calories"><i class="fas fa-fire"></i> <?= $activite['depense_calorique_estimee'] ?> kcal/h</span>
+                </div>
+                <a href="/sports/detail/<?= $activite['id'] ?>" class="btn-outline">En savoir plus</a>
+            </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+
+<style>
+    .page-header {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+    }
+    .filters-section {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .filter-buttons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .filter-btn {
+        padding: 10px 24px;
+        border-radius: 40px;
+        background: var(--white);
+        color: var(--text-dark);
+        text-decoration: none;
+        transition: 0.2s;
+        border: 1px solid var(--gray-light);
+    }
+    .filter-btn:hover, .filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+    .sports-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .sport-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: var(--shadow-sm);
+        transition: 0.2s;
+    }
+    .sport-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+    .sport-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .sport-icon i {
+        font-size: 1.8rem;
+        color: var(--primary);
+    }
+    .sport-card h3 {
+        margin-bottom: 12px;
+    }
+    .sport-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px 0;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .calories {
+        font-weight: 600;
+        color: var(--secondary-dark);
+    }
+    .no-results {
+        text-align: center;
+        padding: 60px;
+        background: var(--white);
+        border-radius: 20px;
+        grid-column: 1 / -1;
+    }
+</style>
+
+<?= $this->endSection() ?>
+<?= $this->include('layout/footer') ?>

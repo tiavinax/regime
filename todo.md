@@ -123,10 +123,10 @@ Chaque bloc est indépendant : un membre de l'équipe peut prendre un bloc entie
 ## 7. BACK OFFICE (Authentification admin)
 
 ### 7.1 Login Admin
-- [ ] **Table admin** : `administrateur` (id, email, password)
-- [ ] **Contrôleur** : `AdminAuthController` - méthode `login()`
-- [ ] **Vue** : `admin/login.php`
-- [ ] **Route** : `/admin/login`
+- [ok] **Table admin** : `administrateur` (id, email, password)
+- [ok] **Contrôleur** : `AdminAuthController` - méthode `login()`
+- [ok] **Vue** : `admin/login.php`
+- [ok] **Route** : `/admin/login`
 
 ### 7.2 Tableau de bord avec graphiques
 - [ ] **Contrôleur** : `AdminDashboardController`
